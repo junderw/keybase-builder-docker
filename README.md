@@ -13,3 +13,9 @@ docker build -t keybase-builder .
 ```bash
 docker run -v $(pwd)/files:/data -it keybase-builder /root/newbuild
 ```
+
+## Run to move binaries from files folder to /usr /etc and /opt
+
+```bash
+./movefiles.sh ./files/20180309162432/
+```
