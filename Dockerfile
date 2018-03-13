@@ -22,5 +22,5 @@ WORKDIR /go/src/github.com/keybase/client/packaging/linux
 RUN KEYBASE_SKIP_32_BIT=1 ./build_binaries.sh prerelease /root/build
 
 WORKDIR /root
-COPY runme.sh /root/newbuild
+COPY bin/runme.sh /root/newbuild
 RUN chmod a+x /root/newbuild

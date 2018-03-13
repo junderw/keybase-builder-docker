@@ -1,12 +1,17 @@
 #!/bin/bash
 
+CLIENTREF="${1:-origin/master}"
+KBFSREF="${2:-origin/master}"
+
 rm -rf /root/build/*
 
 cd /go/src/github.com/keybase/kbfs
-git pull origin master
+git fetch origin
+git reset --hard "$KBFSREF"
 
 cd /go/src/github.com/keybase/client
-git pull origin master
+git fetch origin
+git reset --hard "$CLIENTREF"
 
 cd /go/src/github.com/keybase/client/packaging/linux
 KEYBASE_SKIP_32_BIT=1 ./build_binaries.sh prerelease /root/build
